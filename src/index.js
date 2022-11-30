@@ -1,4 +1,9 @@
+import './style.css';
+import initWebsite from './loadPage.js';
+//import loadHome from './home.js';
 
-function print(){
-    console.log("Hello");
-}
+
+
+initWebsite();
+
+
