@@ -1,4 +1,6 @@
-import loadHome from './home.js';
+//import {setActiveButton} from './index.js';
+import {loadHome} from './home.js';
+import {loadMenu} from './menu.js';
 
 function createHeader() {
     let header = document.createElement('header');
@@ -29,7 +31,7 @@ function createNav() {
     menuButton.addEventListener('click', function (e){
         if(e.target.classList.contains('active')) return;
         setActiveButton(menuButton);
-        //ToDo: loadMenu() imported from separate .js
+        loadMenu();
     });
     nav.appendChild(menuButton);
 
@@ -45,7 +47,7 @@ function createNav() {
 
     return nav;
 }
-function setActiveButton(button) {
+export function setActiveButton(button) {
     let buttons = document.querySelectorAll ('.button-nav');
     buttons.forEach(button => {
         if (button !== this) {
@@ -54,6 +56,7 @@ function setActiveButton(button) {
     });
     button.classList.add("active");
 }
+
 function createMain() {
     let main = document.createElement('main');
     main.setAttribute('id','home');
@@ -84,7 +87,7 @@ function createFooter() {
     footer.appendChild(pFooter);
     return footer;
 }
-function initWebsite() {
+export function initWebsite() {
     let content = document.getElementById("content");
 
     content.appendChild(createHeader());
@@ -92,9 +95,10 @@ function initWebsite() {
     content.appendChild(createFooter());
 
     loadHome()
+    //loadMenu();
     setActiveButton(document.querySelector(".button-nav"));
     
 
 
 }
-export default initWebsite;
+
