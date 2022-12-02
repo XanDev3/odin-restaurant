@@ -1,6 +1,7 @@
 //import {setActiveButton} from './index.js';
 import {loadHome} from './home.js';
 import {loadMenu} from './menu.js';
+import {loadContact} from './contact.js'
 
 function createHeader() {
     let header = document.createElement('header');
@@ -41,7 +42,7 @@ function createNav() {
     contactButton.addEventListener('click', function (e){
         if(e.target.classList.contains('active')) return;
         setActiveButton(contactButton);
-        //ToDo: loadContact() imported from separate .js
+        loadContact()
     });
     nav.appendChild(contactButton);
 
@@ -94,8 +95,8 @@ export function initWebsite() {
     content.appendChild(createMain());
     content.appendChild(createFooter());
 
-    loadHome()
-    //loadMenu();
+    loadHome();
+    //loadContact();
     setActiveButton(document.querySelector(".button-nav"));
     
 

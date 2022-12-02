@@ -23,10 +23,12 @@
   margin: 0;
 }
 
+html, 
 body {
     background-image: url('images/coffee1.jpg');
     background-attachment:fixed;
     background-size: cover;
+    margin:0;
 }
 
 button {
@@ -44,13 +46,15 @@ button {
 } */
 
 /* Content */
+/* from https://matthewjamestaylor.com/bottom-footer */
 .content {    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-items:center;
     justify-content: space-between;
-    height: 70vh;
+    height: 100vh;
+   
 }
 
 /* Header */
@@ -89,17 +93,20 @@ h1 {
 }
 
 /* Main */
-
+main{
+ padding-bottom: 30px;
+}
 #home {
     max-width: 75%;
     min-width: 708px;
-    height: calc(13rem + 5vw);
-    padding-bottom: 4rem;
-    margin-bottom: 2rem;
+    height: calc(10rem + 14vw);
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
     font-size: 2rem;
     color: var(--dark-font-color);
     display: flex;
     flex-direction: column;
+    flex-grow:0;
 }
 
 .welcome-text {
@@ -139,21 +146,22 @@ p.pmain {
   display: table; /* keep the background color wrapped tight */
   margin: 0px auto 0px auto; /* keep the table centered */
 }
-.info{
+/* .info{
   flex-basis:content;
   flex-shrink: 0;
-}  
+}   */
 
 #home .info {
   background-color: var(--background-light);
   border: 2px solid var(--border-color);
-  position: absolute;
-  top: 71%;
+  position: relative;
+  padding: 1rem;
+  top: 0;
   left: 0;
   right: 0;
-  margin: 0 auto;
+  margin: 1rem auto;
   width: 400px;
-  height: 212px;
+  height: 210px;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 6px;
   display: flex;
@@ -165,12 +173,12 @@ p.pmain {
 
 #home .address,
 #home .hours {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 400;
   font-family: 'Cinzel';
   display: flex;
   color: var(--light-font-color);
-  padding: 0 .2rem 0 1rem;
+  padding: .4rem .2rem 0 1rem;
   text-align: left;
   align-items: center;
   justify-items: center;
@@ -179,7 +187,7 @@ p.pmain {
 span,
 .address,
 .hours{
-  gap: 1rem;
+  gap: .8rem;
 }
 
 /*Menu*/
@@ -193,10 +201,12 @@ span,
   display: grid;
   grid-template-columns: repeat(2, 4fr);
   grid-gap: 4rem;
-
+  
+  
 }
 .menu{
   width: 36vw;
+  margin-bottom: 26px;
 }
 #menu h3{
   font-size: calc(2rem + 1vw);
@@ -244,30 +254,138 @@ span,
   margin-left: 4rem;
   
 }
+/*Contact*/
+
+#contact h1{
+  color: var(--home-h2-font-color);
+  text-align: center;
+  font-family: 'Poppins';
+  font-size: 3rem;
+}
+#contact h3{
+  font-size: calc(2rem + 1vw);
+  font-family: 'Josefin Sans';
+  color: var(--home-h2-font-color);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+#contact .contact-container {
+  margin-top: 0rem;
+  background: var(--background-dark);
+  width: 100%;
+  border-radius: 1.2rem;
+  padding: 2rem calc(3rem + 2vw) ;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#contact .info p {
+  font-family: 'Poppins';
+  text-align: justify;
+  font-size: 1.5rem;
+  margin: 1.5rem 0;
+  color: var(--light-font-color);
+}
+
+#contact .info i {
+  font-size: 1.5rem;
+  padding-right: 1rem;
+  color: var(--price-font-color);
+}
+/*imported */
+
+#contact .contact-container .input-box {
+  position: relative;
+  margin-top: 1rem;
+}
+
+#contact .contact-container .input-box input,
+#contact .contact-container .input-box textarea {
+  width: 98%;
+  padding: 0.5rem 0;
+  margin: 1rem 0;
+  font-size: 1.6rem;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid var(--border-color);
+  resize: none;
+  background: rgba(243, 55, 55, 0);
+}
+
+#contact .contact-container .input-box span {
+  position: absolute;
+  left: 0;
+  padding: 0.5rem 0;
+  margin: 1rem 0;
+  font-size: 1.6rem;
+  pointer-events: none;
+  transition: 0.3s;
+  color: var(--home-h2-font-color);
+  font-family: 'Poppins';
+}
+
+#contact .contact-container .input-box input:focus ~ span,
+#contact .contact-container .input-box input:valid ~ span,
+#contact .contact-container .input-box textarea:focus ~ span,
+#contact .contact-container .input-box textarea:valid ~ span {
+  color: var(--home-h2-font-color);
+  font-size: 1.2rem;
+  transform: translateY(-2rem);
+}
+
+#contact .contact-container textarea,
+#contact .contact-container input[type="text"] {
+  font-family: 'Poppins';
+  color: var(--light-font-color);
+}
+
+#contact .contact-container input[type="submit"] {
+  width: 10rem;
+  font-size: 1.6rem;
+  background: var(--home-h2-font-color);
+  padding: 8px 22px;
+  color: var(--background-light);
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+#contact .contact-container input[type="submit"]:hover {
+  background: var(--home-p-background);
+}
 
 
 /*Footer*/
-a {
-    display: inline-block;
-    text-decoration:none;
-    color: inherit
+
+  #footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 .footer {
     font-family: 'Mochiy Pop One';
-    position: bottom;
-    bottom: 0;
-    left: 0;
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    font-size: 18px;
+
+
+  }
+  a {
+    display: inline-block;
+    text-decoration:none;
+    color: inherit
   }
   
   .fa-github {
     font-size: 1.5rem;
     transition: transform 0.3s ease-in-out;
-    margin-bottom: -4px;
+    /* margin-bottom: -4rem; */
     margin-left: 4px;
   }
   
