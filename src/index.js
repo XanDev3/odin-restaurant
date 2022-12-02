@@ -2,11 +2,15 @@ import './style.css';
 import {initWebsite} from './loadPage.js';
 import {loadHome} from './home.js';
 
-
-/* //Make sure page doesn't refresh on form submit
-document.querySelector(`[type="submit"]`).addEventListener("click", () => {
-    document.querySelector("form").reset();
-}); */
+export function setActiveButton(button) {
+    let buttons = document.querySelectorAll ('.button-nav');
+    buttons.forEach(button => {
+        if (button !== this) {
+            button.classList.remove('active');
+        }
+    });
+    button.classList.add("active");
+}
 initWebsite();
 
 

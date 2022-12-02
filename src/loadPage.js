@@ -1,4 +1,4 @@
-//import {setActiveButton} from './index.js';
+import {setActiveButton} from './index.js';
 import {loadHome} from './home.js';
 import {loadMenu} from './menu.js';
 import {loadContact} from './contact.js'
@@ -48,15 +48,7 @@ function createNav() {
 
     return nav;
 }
-export function setActiveButton(button) {
-    let buttons = document.querySelectorAll ('.button-nav');
-    buttons.forEach(button => {
-        if (button !== this) {
-            button.classList.remove('active');
-        }
-    });
-    button.classList.add("active");
-}
+
 
 function createMain() {
     let main = document.createElement('main');
@@ -71,21 +63,22 @@ function createFooter() {
     footer.classList.add('footer');
 
     const pFooter = document.createElement('p');
-    const ghubLink = document.createElement('a');
-    ghubLink.href = "https://github.com/xandernesta/odin-restaurant/";
-    //ghubLink.target = "_blank";
-    pFooter.appendChild(ghubLink);
     pFooter.innerHtml = '&nbsp;';
     pFooter.textContent = "Xander";
     pFooter.innerHtml += '&nbsp;';
     pFooter.textContent +="© 2022";
+    footer.appendChild(pFooter);
+    //add link and icon after text
+    const ghubLink = document.createElement('a');
+    ghubLink.href = "https://github.com/xandernesta/odin-restaurant/";
     const ghubImg = document.createElement('i');
     ghubImg.classList.add('fa-github');
     ghubImg.classList.add('fa-brands');
     ghubImg.setAttribute=('alt','github icon');
-    pFooter.appendChild(ghubImg);
-
-    footer.appendChild(pFooter);
+    ghubLink.appendChild(ghubImg);
+    footer.appendChild(ghubLink);
+   
+    
     return footer;
 }
 export function initWebsite() {
