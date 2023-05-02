@@ -13,7 +13,7 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     static: './dist',
-    host: '192.168.99.190', // in this section, I have tried to change IP address by server IP
+    host: '', // in this section, enter IP address of remote dev server
     port: 3000
   },
   plugins: [
